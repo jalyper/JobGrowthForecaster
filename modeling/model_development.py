@@ -25,7 +25,7 @@ if columns_with_all_nan:
     # Option 1: Drop columns
     data.drop(columns=columns_with_all_nan, inplace=True)
 
-# Assuming 'Total Nonfarm Employment' is one of the columns in your integrated dataset
+# Predict values for Total Nonfarm Employment
 target = 'Total Nonfarm Employment'
 
 # Prepare the data for modeling
@@ -33,7 +33,7 @@ X = data.drop(target, axis=1)
 y = data[target]
 
 # Impute any remaining NaN values using SimpleImputer
-imputer = SimpleImputer(missing_values=np.nan, strategy='mean')  # or use another strategy
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')  
 X_imputed = imputer.fit_transform(X)
 
 # Scale the features

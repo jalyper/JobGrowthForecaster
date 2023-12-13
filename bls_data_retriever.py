@@ -29,7 +29,7 @@ series_ids = [
     'JTS00000000JOL', 'JTS00000000TSR'
 ]
 load_dotenv()
-api_key = os.getenv('API_KEY')  # Replace with your actual API key
+api_key = os.getenv('API_KEY')  
 start_year = 2011
 end_year = 2021
 
