@@ -25,8 +25,8 @@ if columns_with_all_nan:
     # Option 1: Drop columns
     data.drop(columns=columns_with_all_nan, inplace=True)
 
-# Predict values for Total Nonfarm Employment
-target = 'Total Nonfarm Employment'
+# Predict values for specified category
+target = 'Information Employment'
 
 # Prepare the data for modeling
 X = data.drop(target, axis=1)
@@ -56,6 +56,10 @@ model.fit(X_train, y_train)
 
 # Make predictions
 y_pred = model.predict(X_test)
+
+# save predictions
+predictions = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
+predictions.to_csv('S:/JobGrowthForecaster/modeling/model_predictions.csv', index=False)
 
 # Evaluate the model
 mse = mean_squared_error(y_test, y_pred)
